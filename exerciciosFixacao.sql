@@ -44,3 +44,34 @@ SELECT produto, preco, ABS(quantidade) AS quantidade_abs FROM produtos;
 
 -- 2.D
 SELECT AVG(preco) AS precos_media FROM produtos;
+
+-- 3.A
+CREATE TABLE eventos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data_evento DATETIME
+);
+
+INSERT INTO eventos (data_evento)
+VALUES
+('2014-10-12 09:04:22'),
+('1991-11-02 14:37:00'),
+('2000-11-20 11:22:39'),
+('1948-04-04 01:28:44'),
+('2020-05-10 06:09:00'),
+('1939-10-21 19:10:34'),
+('2040-01-20 17:38:05'),
+('2021-04-10 02:17:10'),
+('2020-06-19 23:59:10'),
+('1945-06-02 00:00:00'),
+('2006-10-14 21:33:27'),
+('1999-04-18 01:42:40');
+
+-- 3.B
+INSERT INTO eventos (data_evento)
+SELECT NOW() as DatAtual;
+
+-- 3.C
+SELECT data_evento, data_evento AS data_atual, DATEDIFF(NOW(), data_evento) AS comparacao_total FROM eventos;
+
+-- 3.D
+SELECT DAYNAME(data_evento) AS nome_dia_semana FROM eventos;
