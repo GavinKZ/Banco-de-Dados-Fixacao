@@ -75,3 +75,23 @@ SELECT data_evento, data_evento AS data_atual, DATEDIFF(NOW(), data_evento) AS c
 
 -- 3.D
 SELECT DAYNAME(data_evento) AS nome_dia_semana FROM eventos;
+
+-- 4.A
+INSERT INTO produtos(produto, preco, quantidade)
+VALUES
+('Batata', '05.00', 10),
+('Maçã', '02.00', 0),
+('Abacaxi', '08.50', 5);
+
+SELECT produto, preco, quantidade,
+  IF(quantidade > 0, 'Em estoque', 'Fora de estoque') AS status_estoque
+FROM produtos;
+
+-- 4.B
+SELECT produto, preco, quantidade,
+  CASE
+    WHEN preco <= 3.00 THEN 'Barato'
+    WHEN preco <= 6.00 THEN 'Médio'
+    ELSE 'Caro'
+  END AS categoria_preco
+FROM produtos;
