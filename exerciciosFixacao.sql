@@ -27,3 +27,20 @@ SELECT
     ELSE nome
   END AS nome_tratamento
 FROM nomes;
+
+-- 2.A
+CREATE TABLE produtos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  produto VARCHAR(100) NOT NULL,
+  preco DECIMAL(10, 2) NOT NULL,
+  quantidade INT NOT NULL
+);
+
+-- 2.B
+SELECT produto, ROUND(preco, 2) AS preco_arredondado, quantidade FROM produtos;
+
+-- 2.C
+SELECT produto, preco, ABS(quantidade) AS quantidade_abs FROM produtos;
+
+-- 2.D
+SELECT AVG(preco) AS precos_media FROM produtos;
