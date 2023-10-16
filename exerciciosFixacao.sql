@@ -114,3 +114,15 @@ DELIMITER ;
 -- 5.B
 SELECT produto, preco, quantidade, TOTAL_VALOR(preco, quantidade) AS valor_total
 FROM produtos;
+
+-- 6.A
+SELECT COUNT(produto) FROM produtos;
+
+-- 6.B
+SELECT MAX(preco) FROM produtos;
+
+-- 6.C
+SELECT MIN(preco) FROM produtos;
+
+-- 6.D
+SELECT SUM(IF(quantidade > 0, preco * quantidade, 0)) AS total_em_estoque FROM produtos;
